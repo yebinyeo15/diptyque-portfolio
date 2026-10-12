@@ -1,1 +1,67 @@
-
+.con7 {
+  height: 1260px;
+  background: #fff;
+}
+.con7__inner {
+  overflow: hidden;
+}
+.con7 .section-pill {
+  position: absolute;
+  top: 158px;
+  left: 0;
+}
+.con7 h2 {
+  position: absolute;
+  top: 204px;
+  left: 0;
+}
+.con7__inner > .section-copy {
+  position: absolute;
+  top: 274px;
+  left: 0;
+}
+.con7 .text-link {
+  position: absolute;
+  top: 274px;
+  right: 0;
+}
+.con7__cards {
+  position: absolute;
+  top: 342px;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 465px);
+  gap: 23px;
+}
+.con7 article {
+  font-family: var(--font-inter);
+}
+.con7 article img {
+  width: 465px;
+  height: 562px;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.con7 article small {
+  display: block;
+  margin: 21px 11px 0;
+  font-size: 15px;
+}
+.con7 article h3 {
+  margin: 10px 11px 0;
+  font: 500 30px/1.05 var(--font-inter);
+  letter-spacing: -1.74px;
+}
+.con7 article i {
+  display: block;
+  width: 31px;
+  height: 3px;
+  margin: 13px 11px;
+  background: linear-gradient(90deg, #000 0 3px, transparent 3px 6px, #000 6px);
+}
+.con7 article p {
+  margin-left: 11px;
+  color: var(--color-ink);
+  opacity: 0.68;
+  font: 400 14px/21px var(--font-inter);
+}

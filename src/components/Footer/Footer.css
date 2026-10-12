@@ -1,3 +1,71 @@
 .site-footer {
-  min-height: 5rem;
+  height: 1344px;
+  background: #fff;
+}
+.site-footer__inner {
+  overflow: hidden;
+  font-family: var(--font-inter);
+}
+.site-footer__logo {
+  position: absolute;
+  top: 266px;
+  left: 0;
+  width: 187px;
+  height: 58px;
+}
+.site-footer__tag {
+  position: absolute;
+  top: 343px;
+  left: 0;
+  color: var(--color-text-muted);
+  font: 400 16px/20.8px var(--font-inter);
+  letter-spacing: -0.64px;
+}
+.site-footer__social {
+  position: absolute;
+  top: 270px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+}
+.site-footer__social img {
+  width: 54px;
+  height: 54px;
+  padding: 14px;
+}
+.site-footer__image {
+  position: absolute;
+  top: 439px;
+  left: 0;
+  width: 1442px;
+  height: 730px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.site-footer__caption {
+  position: absolute;
+  top: 1125px;
+  left: 18px;
+  font: 400 14px/20px var(--font-inter);
+}
+.site-footer__address {
+  position: absolute;
+  top: 1226px;
+  left: 0;
+  font: 400 13px/19px var(--font-inter);
+  letter-spacing: -0.455px;
+}
+.site-footer__address span {
+  display: block;
+  margin-top: 7px;
+}
+.site-footer nav {
+  position: absolute;
+  top: 1223px;
+  right: 0;
+  display: grid;
+  grid-template-columns: 200px 160px;
+  gap: 175px;
+  font: 500 15px/23px var(--font-inter);
+  letter-spacing: -0.3px;
 }

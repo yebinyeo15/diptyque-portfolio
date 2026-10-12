@@ -1,1 +1,12 @@
-
+.con8 {
+  display: grid;
+  height: 1080px;
+  place-items: center;
+  background: var(--color-surface-quote);
+}
+.con8 p {
+  color: var(--color-text-quiet);
+  font: 500 64px/1.23 var(--font-libre-baskerville);
+  letter-spacing: -5.12px;
+  text-align: center;
+}

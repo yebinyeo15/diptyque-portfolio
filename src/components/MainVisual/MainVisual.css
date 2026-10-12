@@ -1,1 +1,111 @@
-
+.main-visual {
+  position: relative;
+  height: 1327px;
+  overflow: hidden;
+  background: #fff;
+}
+.main-visual__inner {
+  overflow: hidden;
+}
+.main-visual__title {
+  position: absolute;
+  top: 248px;
+  left: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 453px;
+  height: 159px;
+  padding: 10px;
+}
+.main-visual h1 {
+  width: 433px;
+  color: var(--color-black);
+  font: 600 62px/69.3px var(--font-libre-baskerville);
+  letter-spacing: -4.5px;
+  white-space: nowrap;
+}
+.main-visual__intro {
+  position: absolute;
+  top: 339px;
+  left: 1281px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  width: 165px;
+}
+.main-visual__intro p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 165px;
+  height: 68px;
+  padding: 10px;
+  color: var(--color-black);
+  font: 400 20px/normal var(--font-pretendard);
+  letter-spacing: -0.4px;
+  text-align: right;
+  white-space: nowrap;
+}
+.main-visual__intro span {
+  display: block;
+  width: 31px;
+  height: 3px;
+  background: linear-gradient(90deg, #000 0 3px, transparent 3px 6px, #000 6px);
+}
+.main-visual__cards {
+  position: absolute;
+  top: 460px;
+  left: 9px;
+  display: flex;
+  gap: 10px;
+  width: 2564px;
+  height: 552px;
+  overflow: hidden;
+}
+.main-visual__cards img {
+  width: 419px;
+  height: 552px;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.main-visual__caption {
+  position: absolute;
+  top: 1021px;
+  left: 616px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 207px;
+  height: 39px;
+  padding: 10px;
+}
+.main-visual__caption p {
+  color: var(--color-black);
+  font: 400 16px/normal var(--font-pretendard);
+  letter-spacing: -0.56px;
+  text-align: center;
+  white-space: nowrap;
+}
+.main-visual__names {
+  position: absolute;
+  top: 1061px;
+  left: 349px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 744px;
+  height: 38px;
+  padding: 10px;
+}
+.main-visual__names p {
+  color: var(--color-black);
+  font-family: var(--font-hy-sin-myeong-jo);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  white-space: pre;
+}

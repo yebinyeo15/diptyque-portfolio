@@ -1,1 +1,89 @@
-
+.con5 {
+  height: 1017px;
+  padding-top: 49px;
+  background: #fff;
+}
+.con5__inner {
+  height: 920px;
+  overflow: hidden;
+}
+.con5 .section-pill {
+  position: absolute;
+  top: 113px;
+  left: 0;
+}
+.con5 h2 {
+  position: absolute;
+  top: 152px;
+  left: 0;
+}
+.con5__inner > .section-copy {
+  position: absolute;
+  top: 222px;
+  left: 0;
+}
+.con5__cards {
+  position: absolute;
+  top: 289px;
+  left: 0;
+  display: grid;
+  grid-template-columns: 548px 884px;
+  gap: 10px;
+}
+.con5 article {
+  position: relative;
+  height: 519px;
+  overflow: hidden;
+  border-radius: 18px;
+  color: #fff;
+  font-family: var(--font-inter);
+}
+.con5 article > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.con5 article > img:nth-child(2) {
+  z-index: 1;
+}
+.con5 article > *:not(img) {
+  position: absolute;
+  z-index: 2;
+  left: 36px;
+}
+.con5 article > small {
+  top: 34px;
+  font: 500 13px/18px var(--font-inter);
+  color: rgb(255 255 255 / 78%);
+}
+.con5 article h3 {
+  top: 72px;
+  font: 500 38px/42px var(--font-inter);
+}
+.con5__card--interior h3 {
+  font-size: 46px;
+  line-height: 50px;
+}
+.con5 article h3 em {
+  font-family: var(--font-libre-baskerville);
+  font-weight: 400;
+}
+.con5 article p {
+  top: 350px;
+  color: rgb(255 255 255 / 78%);
+  font: 400 14px/22px var(--font-inter);
+}
+.con5 article b {
+  top: 422px;
+  color: rgb(255 255 255 / 78%);
+  font: 500 11px/16px var(--font-inter);
+}
+.con5 article a {
+  top: 468px;
+  font: 500 13px/18px var(--font-inter);
+}
+.con5__card--interior > *:not(img) {
+  left: 40px !important;
+}

@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="31" height="3" viewBox="0 0 31 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="underline">
+<line id="Line 3" x1="7.5" y1="1.5" x2="29.5" y2="1.5" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<g id="Frame 1">
+<rect width="3" height="3" rx="1.5" fill="black"/>
+</g>
+</g>
+</svg>

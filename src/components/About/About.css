@@ -1,1 +1,153 @@
+@font-face {
+  font-family: "Libre Baskerville About Italic";
+  src: url("/fonts/LibreBaskerville-Italic-Variable.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "Pretendard About";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
+
+.about {
+  height: 719px;
+  background: var(--color-white);
+}
+
+.about__inner {
+  overflow: hidden;
+  border-radius: var(--radius-10);
+  background: var(--color-surface-cool);
+}
+
+.about__main-text,
+.about__sub-text {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.about__main-text {
+  top: 127px;
+  left: 46px;
+}
+
+.about h2 {
+  color: var(--color-black);
+  font: 600 59.801px/75px var(--font-libre-baskerville);
+  letter-spacing: -3.5px;
+  white-space: nowrap;
+}
+
+.about h2 em,
+.about h2 span {
+  display: block;
+}
+
+.about h2 em {
+  font-family: "Libre Baskerville About Italic", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.about__sub-text {
+  top: 516px;
+  left: 46px;
+}
+
+.about p {
+  color: var(--color-black);
+  font:
+    400 20px/28px "Pretendard About",
+    sans-serif;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.about__drop-one-frame {
+  position: absolute;
+  top: 483px;
+  left: 611px;
+  display: flex;
+  width: 83.031px;
+  height: 85.38px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__drop-one-frame img {
+  width: 70px;
+  height: 73px;
+  max-width: none;
+  transform: rotate(-11.38deg);
+}
+
+.about__drop-two {
+  position: absolute;
+  top: 311px;
+  left: 1346px;
+  width: 64px;
+  height: 69px;
+  max-width: none;
+}
+
+.about__puddle {
+  position: absolute;
+  top: 506px;
+  left: 664px;
+  width: 715.5px;
+  height: 152px;
+  max-width: none;
+}
+
+.about__figs {
+  position: absolute;
+  top: -55.44px;
+  left: 510px;
+  width: 900px;
+  height: 738.468px;
+}
+
+.about__fig-frame {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__fig-frame img {
+  width: 542.507px;
+  height: 512.726px;
+  max-width: none;
+  object-position: bottom;
+}
+
+.about__fig-frame--left {
+  top: 99.81px;
+  left: 0;
+  width: 659.437px;
+  height: 638.659px;
+}
+
+.about__fig-frame--left img {
+  transform: rotate(-15.44deg);
+}
+
+.about__fig-frame--right {
+  top: 0;
+  left: 239.86px;
+  width: 660.138px;
+  height: 639.435px;
+}
+
+.about__fig-frame--right img {
+  transform: rotate(15.56deg);
+}

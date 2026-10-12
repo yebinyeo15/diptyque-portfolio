@@ -1,7 +1,29 @@
-.section-placeholder {
-  display: grid;
-  min-height: 12rem;
-  place-items: center;
-  border-bottom: 1px solid #e5e5e5;
+main { overflow: hidden; }
+
+.page-inner {
+  position: relative;
+  width: min(calc(100% - 48px), var(--layout-content));
+  height: 100%;
+  margin: 0 auto;
 }
+
+.section-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 11px;
+  border-radius: var(--radius-pill);
+  background: var(--color-overlay-neutral);
+  font-family: var(--font-inter);
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: -0.13px;
+}
+
+.section-heading { font: 500 48px/51px var(--font-libre-baskerville); letter-spacing: -3.84px; }
+.section-copy { font: 400 16px/21px var(--font-inter); }
+.text-link { display: inline-flex; align-items: center; gap: 14px; font: 400 20px/1 var(--font-inter); letter-spacing: -.6px; }
+.text-link::after { content: '↗'; font-size: 28px; transform: translateY(-2px); }
+.text-link span { position: relative; padding-bottom: 16px; }
+.text-link span::after { position: absolute; bottom: 0; left: 0; width: 31px; height: 3px; background: linear-gradient(90deg,#000 0 3px,transparent 3px 6px,#000 6px); content: ''; }
 

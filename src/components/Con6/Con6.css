@@ -1,1 +1,75 @@
-
+.con6 {
+  height: 819px;
+  background: #fff;
+}
+.con6__inner {
+  overflow: hidden;
+}
+.con6 .section-pill {
+  position: absolute;
+  top: 175px;
+  left: 1px;
+}
+.con6 h2 {
+  position: absolute;
+  top: 222px;
+  left: 0;
+}
+.con6__lead {
+  position: absolute;
+  top: 344px;
+  left: 1px;
+}
+.con6__quote {
+  position: absolute;
+  top: 533px;
+  left: 1px;
+  font: 400 16px/21px var(--font-inter);
+  letter-spacing: -0.8px;
+}
+.con6__quote span {
+  display: block;
+  margin-top: 10px;
+}
+.con6__accordion {
+  position: absolute;
+  top: 157px;
+  right: 0;
+  width: 700px;
+  font-family: var(--font-inter);
+}
+.con6__accordion > div {
+  position: relative;
+  height: 90px;
+  border-top: 1px solid var(--color-border-translucent);
+}
+.con6__accordion > div.is-open {
+  height: 145px;
+  background: var(--color-surface-subtle);
+}
+.con6__accordion small {
+  position: absolute;
+  top: 34px;
+  left: 20px;
+  color: rgb(14 13 12 / 55%);
+  font: 500 12px/18px var(--font-inter);
+}
+.con6__accordion strong {
+  position: absolute;
+  top: 32px;
+  left: 72px;
+  font: 500 16px/22px var(--font-inter);
+}
+.con6__accordion b {
+  position: absolute;
+  top: 29px;
+  right: 20px;
+  font: 400 22px/24px var(--font-inter);
+}
+.con6__accordion p {
+  position: absolute;
+  top: 67px;
+  left: 72px;
+  color: rgb(14 13 12 / 55%);
+  font: 400 14px/22px var(--font-inter);
+}

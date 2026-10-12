@@ -1,1 +1,23 @@
+.con2 {
+  --con2-reveal-inset: 22.5%;
 
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.con2 video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: inset(0 var(--con2-reveal-inset) 0 var(--con2-reveal-inset));
+  will-change: clip-path;
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 767px) {
+  .con2 video {
+    clip-path: inset(0);
+    will-change: auto;
+  }
+}

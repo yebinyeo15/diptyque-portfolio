@@ -1,1 +1,293 @@
+@font-face {
+  font-family: "Inter Con1";
+  src: url("/fonts/Inter-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "Cormorant Garamond Con1";
+  src: url("/fonts/CormorantGaramond-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard Con1";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
+
+.con1 {
+  height: 2984px;
+  background: var(--color-white);
+}
+.con1__inner {
+  overflow: hidden;
+}
+.con1__pill {
+  position: absolute;
+  top: 190px;
+  left: 0;
+  font-family: "Inter Con1", sans-serif;
+  font-weight: 400;
+}
+.con1__heading {
+  position: absolute;
+  top: 233px;
+  left: 0;
+  color: var(--color-black);
+  font: 500 48px/normal var(--font-libre-baskerville);
+  letter-spacing: -3.84px;
+  white-space: nowrap;
+}
+.con1__copy {
+  position: absolute;
+  top: 306px;
+  left: 0;
+  color: var(--color-black);
+  font:
+    400 16px/21px "Inter Con1",
+    sans-serif;
+  letter-spacing: -0.544px;
+  white-space: nowrap;
+}
+
+.con1__filters {
+  position: absolute;
+  top: 389px;
+  left: 0;
+  width: 318px;
+  height: 23px;
+  color: var(--color-text-muted);
+  font:
+    400 14px/22.4px "Inter Con1",
+    sans-serif;
+  letter-spacing: 0.56px;
+  white-space: nowrap;
+}
+.con1__filters span {
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+.con1__filters span:nth-child(1) {
+  left: 0;
+  width: 27px;
+}
+.con1__filters span:nth-child(2) {
+  left: 47px;
+  width: 55px;
+}
+.con1__filters span:nth-child(3) {
+  left: 122px;
+  width: 55px;
+}
+.con1__filters span:nth-child(4) {
+  left: 197px;
+  width: 48px;
+}
+.con1__filters span:nth-child(5) {
+  left: 265px;
+  width: 53px;
+}
+.con1__filters .is-active {
+  border-bottom: 1px solid var(--color-border-mid);
+}
+
+.con1__view-all {
+  position: absolute;
+  top: 376px;
+  left: 1174px;
+  padding: 10px;
+  color: var(--color-black);
+  font:
+    400 20px/normal "Inter Con1",
+    sans-serif;
+  letter-spacing: -0.6px;
+  white-space: nowrap;
+}
+.con1__view-arrow {
+  position: absolute;
+  top: 376px;
+  left: 1404.57px;
+  display: flex;
+  width: 43.799px;
+  height: 43.799px;
+  align-items: center;
+  justify-content: center;
+}
+.con1__view-arrow img {
+  width: 31px;
+  height: 31px;
+  max-width: none;
+  transform: rotate(42.52deg);
+}
+.con1__view-underline {
+  position: absolute;
+  top: 425px;
+  left: 1184px;
+  width: 31px;
+  height: 3px;
+  max-width: none;
+}
+
+.con1__grid {
+  position: absolute;
+  top: 454px;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 709px);
+  gap: 56px 24px;
+}
+.con1__card {
+  height: 742px;
+}
+.con1__image {
+  position: relative;
+  width: 709px;
+  height: 709px;
+  overflow: hidden;
+  border-radius: var(--radius-13);
+}
+.con1__image > img {
+  position: absolute;
+  max-width: none;
+  transform: scale(1);
+  transform-origin: center;
+  backface-visibility: hidden;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.con1__card--doson .con1__image > img,
+.con1__card--lombre .con1__image > img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.con1__card--orpheon .con1__image > img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-position: bottom;
+}
+.con1__card--eaurose .con1__image > img {
+  top: -23.68%;
+  left: -10.02%;
+  width: 118.02%;
+  height: 147.47%;
+}
+.con1__card--tamdao .con1__image > img {
+  top: -26.42%;
+  left: -10.09%;
+  width: 114.75%;
+  height: 153%;
+}
+.con1__card--fleur .con1__image > img {
+  top: -16.5%;
+  left: -11.79%;
+  width: 127%;
+  height: 127%;
+}
+
+.con1__hover {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--radius-13);
+  color: var(--color-white);
+  pointer-events: none;
+}
+.con1__hover::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgb(0 0 0 / 50%);
+  content: "";
+  opacity: 0;
+  transition: opacity 0.65s ease-in-out;
+}
+.con1__hover h3 {
+  position: absolute;
+  z-index: 1;
+  top: 250px;
+  left: 50%;
+  width: 610px;
+  height: 65px;
+  transform: translateX(-50%);
+  font:
+    600 42px/normal "Cormorant Garamond Con1",
+    serif;
+  text-align: center;
+}
+.con1__hover > span {
+  position: absolute;
+  z-index: 1;
+  top: 335px;
+  left: 332px;
+  width: 45px;
+  height: 2px;
+  background: rgb(255 255 255 / 90%);
+}
+.con1__hover p {
+  position: absolute;
+  z-index: 1;
+  top: 358px;
+  left: 50%;
+  width: 610px;
+  height: 95px;
+  transform: translateX(-50%);
+  font:
+    500 22px/38px "Pretendard Con1",
+    sans-serif;
+  letter-spacing: 0.22px;
+  text-align: center;
+}
+.con1__hover h3,
+.con1__hover > span,
+.con1__hover p {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transition:
+    clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease-in-out;
+}
+.con1__card:hover .con1__image > img {
+  transform: scale(1.05);
+}
+.con1__card:hover .con1__hover::before {
+  opacity: 1;
+}
+.con1__card:hover .con1__hover h3,
+.con1__card:hover .con1__hover > span,
+.con1__card:hover .con1__hover p {
+  clip-path: inset(0);
+  opacity: 1;
+}
+.con1__card:hover .con1__hover h3 {
+  transition-delay: 0.12s;
+}
+.con1__card:hover .con1__hover > span {
+  transition-delay: 0.24s;
+}
+.con1__card:hover .con1__hover p {
+  transition-delay: 0.34s;
+}
+
+.con1__meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 12px 0 11px;
+  color: var(--color-ink-deep);
+  font:
+    400 16px/21px "Inter Con1",
+    sans-serif;
+  letter-spacing: -0.64px;
+  white-space: nowrap;
+}

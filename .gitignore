@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .env
 .env.*
+/references/
+/.con1-cdp-profile/
