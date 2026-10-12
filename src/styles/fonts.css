@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('/fonts/LibreBaskerville-Variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/*
+ * Figma also uses Inter, Pretendard, HYSinMyeongJo and Idiqlat.
+ * No verified local font files were supplied for those families, so no
+ * @font-face declarations are added until their exact sources are known.
+ */

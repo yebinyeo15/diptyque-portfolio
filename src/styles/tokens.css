@@ -1,0 +1,52 @@
+:root {
+  --font-libre-baskerville: 'Libre Baskerville', serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-pretendard: 'Pretendard', sans-serif;
+  --font-hy-sin-myeong-jo: 'HYSinMyeongJo', serif;
+  --font-idiqlat: 'Idiqlat', serif;
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-ink: #0e0d0c;
+  --color-ink-warm: #1b1916;
+  --color-ink-cool: #1d2029;
+  --color-ink-deep: #020202;
+  --color-text-muted: #49505d;
+  --color-text-quiet: #989490;
+  --color-surface-cool: #f2f4f7;
+  --color-surface-soft: #f4f4f4;
+  --color-surface-quote: #f6f6f6;
+  --color-surface-subtle: #fbfbfb;
+  --color-border-light: #e5e5e5;
+  --color-border-mid: #9e9e9e;
+  --color-surface-dark: #1f1d1b;
+  --color-overlay-neutral: rgb(212 212 212 / 30%);
+  --color-overlay-cream: rgb(248 245 237 / 92%);
+  --color-border-translucent: rgb(14 13 12 / 16%);
+
+  --layout-desktop: 1920px;
+  --layout-content: 1442px;
+  --layout-gutter-desktop: 239px;
+
+  --space-3: 3px;
+  --space-6: 6px;
+  --space-7: 7px;
+  --space-10: 10px;
+  --space-11: 11px;
+  --space-14: 14px;
+  --space-15: 15px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-30: 30px;
+
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-13: 13px;
+  --radius-18: 18px;
+  --radius-20: 20px;
+  --radius-30: 30px;
+  --radius-pill: 50px;
+}

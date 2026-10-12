@@ -1,0 +1,7 @@
+.section-placeholder {
+  display: grid;
+  min-height: 12rem;
+  place-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+

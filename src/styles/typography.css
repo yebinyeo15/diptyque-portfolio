@@ -1,0 +1,39 @@
+.type-section-heading {
+  font-family: var(--font-libre-baskerville);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 51px;
+  letter-spacing: -3.84px;
+}
+
+.type-section-label {
+  font-family: var(--font-libre-baskerville);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.13px;
+}
+
+.type-body {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.64px;
+}
+
+.type-display-main {
+  font-family: var(--font-hy-sin-myeong-jo);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 69.3px;
+  letter-spacing: -4.5px;
+}
+
+.type-display-quote {
+  font-family: var(--font-libre-baskerville);
+  font-size: 64px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -5.12px;
+}
