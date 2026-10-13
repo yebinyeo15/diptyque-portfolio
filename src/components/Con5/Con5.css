@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Con5 Inter";
+  src: url("/fonts/Inter-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Con5 Libre Baskerville";
+  src: url("/fonts/LibreBaskerville-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Con5 Libre Baskerville";
+  src: url("/fonts/LibreBaskerville-Italic-Variable.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
 .con5 {
   height: 1017px;
   padding-top: 49px;
@@ -11,16 +35,31 @@
   position: absolute;
   top: 113px;
   left: 0;
+  height: 21px;
+  overflow: hidden;
+  font-family: "Con5 Inter", sans-serif;
+  font-weight: 400;
+  line-height: normal;
 }
 .con5 h2 {
   position: absolute;
   top: 152px;
   left: 0;
+  font-family: "Con5 Libre Baskerville", serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 51px;
+  letter-spacing: -3.84px;
 }
 .con5__inner > .section-copy {
   position: absolute;
   top: 222px;
   left: 0;
+  font-family: "Con5 Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.8px;
 }
 .con5__cards {
   position: absolute;
@@ -29,14 +68,17 @@
   display: grid;
   grid-template-columns: 548px 884px;
   gap: 10px;
+  width: 1442px;
+  transition: grid-template-columns 650ms ease-in-out;
 }
 .con5 article {
   position: relative;
+  min-width: 0;
   height: 519px;
   overflow: hidden;
   border-radius: 18px;
   color: #fff;
-  font-family: var(--font-inter);
+  font-family: "Con5 Inter", sans-serif;
 }
 .con5 article > img {
   position: absolute;
@@ -48,6 +90,33 @@
 .con5 article > img:nth-child(2) {
   z-index: 1;
 }
+.con5__card--flame > img:first-child {
+  right: auto;
+  width: 548px;
+  max-width: none;
+}
+.con5__card--interior > img:first-child {
+  right: auto;
+  left: -82.7424px;
+  width: 1049.5732px;
+  max-width: none;
+  object-fit: fill;
+}
+.con5__card--interior > img:nth-child(2) {
+  transition: object-position 650ms ease-in-out;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1490px) {
+  .con5__cards:has(.con5__card--flame:hover) {
+    grid-template-columns: 884px 548px;
+  }
+
+  .con5__cards:has(.con5__card--flame:hover)
+    .con5__card--interior
+    > img:nth-child(2) {
+    object-position: 41.3% center;
+  }
+}
 .con5 article > *:not(img) {
   position: absolute;
   z-index: 2;
@@ -55,35 +124,43 @@
 }
 .con5 article > small {
   top: 34px;
-  font: 500 13px/18px var(--font-inter);
+  font: 500 13px/18px "Con5 Inter", sans-serif;
   color: rgb(255 255 255 / 78%);
 }
 .con5 article h3 {
   top: 72px;
-  font: 500 38px/42px var(--font-inter);
+  font: 500 38px/42px "Con5 Inter", sans-serif;
 }
 .con5__card--interior h3 {
   font-size: 46px;
   line-height: 50px;
 }
 .con5 article h3 em {
-  font-family: var(--font-libre-baskerville);
+  font-family: "Con5 Libre Baskerville", serif;
+  font-style: italic;
   font-weight: 400;
 }
 .con5 article p {
   top: 350px;
   color: rgb(255 255 255 / 78%);
-  font: 400 14px/22px var(--font-inter);
+  font: 400 14px/22px "Con5 Inter", sans-serif;
 }
 .con5 article b {
   top: 422px;
   color: rgb(255 255 255 / 78%);
-  font: 500 11px/16px var(--font-inter);
+  font: 500 11px/16px "Con5 Inter", sans-serif;
 }
 .con5 article a {
   top: 468px;
-  font: 500 13px/18px var(--font-inter);
+  font: 500 13px/18px "Con5 Inter", sans-serif;
 }
 .con5__card--interior > *:not(img) {
   left: 40px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .con5__cards,
+  .con5__card--interior > img:nth-child(2) {
+    transition: none;
+  }
 }

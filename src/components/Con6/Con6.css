@@ -1,34 +1,48 @@
+@font-face {
+  font-family: "Con6 Inter";
+  src: url("/fonts/Inter-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 .con6 {
   height: 819px;
-  background: #fff;
+  background: var(--color-white);
 }
 .con6__inner {
+  height: 819px;
   overflow: hidden;
 }
 .con6 .section-pill {
   position: absolute;
   top: 175px;
   left: 1px;
+  font-family: "Con6 Inter", sans-serif;
+  font-weight: 400;
 }
 .con6 h2 {
   position: absolute;
   top: 222px;
   left: 0;
+  color: var(--color-black);
 }
 .con6__lead {
   position: absolute;
   top: 344px;
   left: 1px;
+  font-family: "Con6 Inter", sans-serif;
+  letter-spacing: -0.8px;
 }
 .con6__quote {
   position: absolute;
   top: 533px;
   left: 1px;
-  font: 400 16px/21px var(--font-inter);
+  color: var(--color-black);
+  font: 400 16px/21px "Con6 Inter", sans-serif;
   letter-spacing: -0.8px;
 }
-.con6__quote span {
-  display: block;
+.con6__quote p + p {
   margin-top: 10px;
 }
 .con6__accordion {
@@ -36,40 +50,110 @@
   top: 157px;
   right: 0;
   width: 700px;
-  font-family: var(--font-inter);
+  height: 505px;
+  overflow: hidden;
+  color: var(--color-ink);
+  font-family: "Con6 Inter", sans-serif;
 }
-.con6__accordion > div {
+.con6__accordion-item {
   position: relative;
   height: 90px;
+  overflow: hidden;
   border-top: 1px solid var(--color-border-translucent);
+  transition: height 450ms ease-in-out, background-color 450ms ease-in-out;
 }
-.con6__accordion > div.is-open {
+.con6__accordion-item.is-open {
   height: 145px;
   background: var(--color-surface-subtle);
 }
+.con6__accordion-item > button {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.con6__accordion-item > button:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: -2px;
+}
 .con6__accordion small {
   position: absolute;
-  top: 34px;
+  top: 33px;
   left: 20px;
+  width: 38px;
+  height: 20px;
   color: rgb(14 13 12 / 55%);
-  font: 500 12px/18px var(--font-inter);
+  font: 500 12px/18px "Con6 Inter", sans-serif;
+  transition: top 450ms ease-in-out;
 }
 .con6__accordion strong {
   position: absolute;
-  top: 32px;
+  top: 31px;
   left: 72px;
-  font: 500 16px/22px var(--font-inter);
+  width: 540px;
+  height: 20px;
+  font: 500 16px/22px "Con6 Inter", sans-serif;
+  transition: top 450ms ease-in-out;
 }
 .con6__accordion b {
   position: absolute;
-  top: 29px;
-  right: 20px;
-  font: 400 22px/24px var(--font-inter);
+  top: 28px;
+  left: 650px;
+  width: 30px;
+  height: 20px;
+  font: 400 22px/24px "Con6 Inter", sans-serif;
+  transition: top 450ms ease-in-out, left 450ms ease-in-out;
 }
-.con6__accordion p {
+.con6__answer {
   position: absolute;
-  top: 67px;
+  top: 66px;
   left: 72px;
+  width: 550px;
+  height: 44px;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition:
+    opacity 400ms ease-out,
+    transform 400ms ease-out,
+    visibility 0s linear 400ms;
+}
+.con6__answer p {
   color: rgb(14 13 12 / 55%);
-  font: 400 14px/22px var(--font-inter);
+  font: 400 14px/22px "Con6 Inter", sans-serif;
+}
+.con6__accordion-item.is-open .con6__answer {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 100ms, 100ms, 0s;
+}
+.con6__accordion-item.is-open small {
+  top: 23px;
+}
+.con6__accordion-item.is-open strong {
+  top: 21px;
+}
+.con6__accordion-item.is-open b {
+  top: 18px;
+  left: 654px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .con6__accordion-item,
+  .con6__accordion small,
+  .con6__accordion strong,
+  .con6__accordion b,
+  .con6__answer {
+    transition: none;
+  }
 }
