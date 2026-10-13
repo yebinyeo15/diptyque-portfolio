@@ -108,15 +108,13 @@
   object-position: center;
   border-radius: 6px;
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
+  transition: opacity 900ms ease-in-out;
 }
 
 .con4__image.is-active {
   z-index: 1;
   opacity: 1;
-  visibility: visible;
-  animation: con4-content-fade 220ms ease-out both;
 }
 
 .con4__archive {
@@ -131,7 +129,12 @@
   font-family: "Con4 Inter", sans-serif;
   color: var(--color-ink);
   overflow: hidden;
-  animation: con4-content-fade 220ms ease-out both;
+}
+
+.con4__archive-content {
+  position: absolute;
+  inset: 0;
+  animation: con4-archive-text-enter 450ms ease-out both;
 }
 
 .con4__archive-index {
@@ -184,8 +187,10 @@
 .con4__index li {
   position: relative;
   height: 72px;
+  overflow: hidden;
   border-bottom: 1px solid rgb(31 29 27 / 14%);
   font-family: "Con4 Inter", sans-serif;
+  transition: height 500ms ease-in-out;
 }
 
 .con4__index li.is-selected {
@@ -212,6 +217,7 @@
   font-size: 13px;
   font-weight: 400;
   line-height: normal;
+  transition: opacity 500ms ease-in-out;
 }
 
 .con4__index-name {
@@ -220,6 +226,10 @@
   left: 62px;
   width: 320px;
   font: 500 24px/normal "Con4 Inter", sans-serif;
+  transition:
+    top 500ms ease-in-out,
+    opacity 500ms ease-in-out,
+    transform 300ms ease-out;
 }
 
 .con4__index .is-selected .con4__index-name {
@@ -238,6 +248,13 @@
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-6px);
+  transition:
+    opacity 400ms ease-out,
+    transform 400ms ease-out,
+    visibility 0s linear 400ms;
 }
 
 .con4__index-copy {
@@ -246,11 +263,50 @@
   left: 62px;
   width: 360px;
   font: 400 13px/20px "Con4 Inter", sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 450ms ease-out,
+    transform 450ms ease-out,
+    visibility 0s linear 450ms;
+}
+
+.con4__index .is-selected .con4__index-arrow {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition-delay: 0s;
+}
+
+.con4__index .is-selected .con4__index-copy {
   opacity: 0.72;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
 }
 
 .con4 .is-muted {
+  border-bottom-color: rgb(31 29 27 / 5.32%);
+}
+
+.con4 .is-muted .con4__index-number,
+.con4 .is-muted .con4__index-name {
   opacity: 0.38;
+}
+
+.con4 .is-muted:hover .con4__index-name,
+.con4
+  .is-muted
+  .con4__index-trigger:focus-visible
+  .con4__index-name {
+  opacity: 0.68;
+  transform: translateX(4px);
+}
+
+.con4 .is-muted .con4__index-trigger:focus-visible {
+  outline: 1px solid rgb(31 29 27 / 45%);
+  outline-offset: -3px;
 }
 
 .con4__marquee {
@@ -260,24 +316,66 @@
   width: 1642px;
   height: 50px;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6.1%,
+    #000 20%,
+    #000 80%,
+    transparent 93.9%,
+    transparent 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6.1%,
+    #000 20%,
+    #000 80%,
+    transparent 93.9%,
+    transparent 100%
+  );
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
 
-.con4__marquee p {
+.con4__marquee-track {
   position: absolute;
   top: 16px;
   left: -40px;
+  display: flex;
+  width: max-content;
+  animation: con4-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.con4__marquee p {
+  flex: none;
   white-space: nowrap;
   font: 400 14px/normal "Con4 Inter", sans-serif;
   opacity: 0.78;
 }
 
-@keyframes con4-content-fade {
+.con4__marquee p::after {
+  content: "\00a0\00a0\00a0 ✦ \00a0\00a0\00a0";
+}
+
+@keyframes con4-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes con4-archive-text-enter {
   from {
     opacity: 0;
+    transform: translateX(-16px);
   }
 
   to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -293,8 +391,39 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .con4__image.is-active,
-  .con4__archive {
+  .con4__image,
+  .con4__archive-content {
     animation: none;
+    transition: none;
+  }
+
+  .con4__marquee-track {
+    animation: none;
+    transform: none;
+  }
+
+  .con4__marquee p[aria-hidden="true"] {
+    display: none;
+  }
+
+  .con4__index li,
+  .con4__index-number,
+  .con4__index-name,
+  .con4__index-arrow,
+  .con4__index-copy {
+    transition: none;
+  }
+
+  .con4__index-arrow,
+  .con4__index-copy {
+    transform: none;
+  }
+
+  .con4 .is-muted:hover .con4__index-name,
+  .con4
+    .is-muted
+    .con4__index-trigger:focus-visible
+    .con4__index-name {
+    transform: none;
   }
 }

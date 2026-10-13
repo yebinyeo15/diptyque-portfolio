@@ -332,14 +332,18 @@ function Con4() {
               );
             })}
           </div>
-          <div key={selectedFragrance} className="con4__archive">
-            <small className="con4__archive-index">
-              {selectedContent.archiveLabel}
-            </small>
-            <div className="con4__archive-quote">{selectedContent.quote}</div>
-            <small className="con4__archive-notes">
-              {selectedContent.notes}
-            </small>
+          <div className="con4__archive">
+            <div key={selectedFragrance} className="con4__archive-content">
+              <small className="con4__archive-index">
+                {selectedContent.archiveLabel}
+              </small>
+              <div className="con4__archive-quote">
+                {selectedContent.quote}
+              </div>
+              <small className="con4__archive-notes">
+                {selectedContent.notes}
+              </small>
+            </div>
           </div>
         </div>
         <ol className="con4__index" aria-label="향수 목록">
@@ -359,31 +363,43 @@ function Con4() {
                 <small className="con4__index-number">0{i + 1}</small>
                 <strong className="con4__index-name">{name}</strong>
               </button>
-              {name === selectedFragrance && (
-                <>
-                  <span className="con4__index-arrow" aria-hidden="true">
-                    →
-                  </span>
-                  <p className="con4__index-copy">
-                    {selectedContent.description}
-                  </p>
-                </>
-              )}
+              <span className="con4__index-arrow" aria-hidden="true">
+                →
+              </span>
+              <p
+                className="con4__index-copy"
+                aria-hidden={name !== selectedFragrance}
+              >
+                {fragranceContent[name].description}
+              </p>
             </li>
           ))}
         </ol>
         <div className="con4__marquee" aria-hidden="true">
-          <p>
-            PHILOSYKOS — FIG LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
-            TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
-            ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
-            JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO —
-            SANDALWOOD&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;PHILOSYKOS — FIG
-            LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
-            TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
-            ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
-            JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO — SANDALWOOD
-          </p>
+          <div className="con4__marquee-track">
+            <p>
+              PHILOSYKOS — FIG LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
+              TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
+              ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
+              JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO —
+              SANDALWOOD&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;PHILOSYKOS — FIG
+              LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
+              TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
+              ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
+              JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO — SANDALWOOD
+            </p>
+            <p aria-hidden="true">
+              PHILOSYKOS — FIG LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
+              TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
+              ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
+              JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO —
+              SANDALWOOD&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;PHILOSYKOS — FIG
+              LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
+              TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
+              ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
+              JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO — SANDALWOOD
+            </p>
+          </div>
         </div>
       </div>
     </section>
