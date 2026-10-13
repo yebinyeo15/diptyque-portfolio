@@ -39,13 +39,22 @@
 }
 
 .con4 {
-  height: 982px;
+  --con4-scroll-step: max(70vh, 620px);
+
+  height: calc(
+    982px + var(--con4-scroll-step) + var(--con4-scroll-step) +
+      var(--con4-scroll-step) + var(--con4-scroll-step)
+  );
   background: var(--color-white);
   color: var(--color-ink);
 }
 
 .con4__inner {
+  position: sticky;
+  top: max(0px, calc((100vh - 982px) / 2));
+  height: 982px;
   overflow: hidden;
+  background: var(--color-white);
 }
 
 .con4 .section-pill {
@@ -84,16 +93,35 @@
   border-radius: 6px;
 }
 
-.con4__feature > img {
+.con4__image-stack {
+  position: absolute;
+  inset: 0;
+}
+
+.con4__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.con4__image.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  animation: con4-content-fade 220ms ease-out both;
 }
 
 .con4__archive {
   position: absolute;
+  z-index: 2;
   top: 135px;
   left: 24px;
   width: 410px;
@@ -103,6 +131,7 @@
   font-family: "Con4 Inter", sans-serif;
   color: var(--color-ink);
   overflow: hidden;
+  animation: con4-content-fade 220ms ease-out both;
 }
 
 .con4__archive-index {
@@ -240,4 +269,32 @@
   white-space: nowrap;
   font: 400 14px/normal "Con4 Inter", sans-serif;
   opacity: 0.78;
+}
+
+@keyframes con4-content-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px), (max-height: 839px) {
+  .con4 {
+    height: 982px;
+  }
+
+  .con4__inner {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .con4__image.is-active,
+  .con4__archive {
+    animation: none;
+  }
 }

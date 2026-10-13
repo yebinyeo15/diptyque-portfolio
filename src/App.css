@@ -1,4 +1,7 @@
-main { overflow: hidden; }
+main {
+  overflow-x: clip;
+  overflow-y: visible;
+}
 
 .page-inner {
   position: relative;
