@@ -147,6 +147,21 @@
 .con1__card {
   height: 742px;
 }
+.con1__grid--reveal-disabled .con1__reveal {
+  opacity: 1;
+  transform: none;
+}
+.con1__grid--reveal-ready .con1__reveal {
+  opacity: 0.85;
+  transform: translate3d(0, 24px, 0);
+}
+.con1__grid--reveal-ready .con1__reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
 .con1__image {
   position: relative;
   width: 709px;
@@ -290,4 +305,11 @@
     sans-serif;
   letter-spacing: -0.64px;
   white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .con1__grid--reveal-ready .con1__reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

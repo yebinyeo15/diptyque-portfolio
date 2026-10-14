@@ -4,7 +4,8 @@ import "./Con7.css";
 const STICKY_MEDIA_QUERY =
   "(min-width: 1200px) and (min-height: 1000px) and (hover: hover) and (pointer: fine)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
-const SCROLL_DISTANCE = 900;
+const SCROLL_DISTANCE = 750;
+const CARD_COUNT = 3;
 const DEFAULT_DIVIDER_WIDTH = 31;
 const EXPANDED_DIVIDER_WIDTH = 454;
 const PROGRESS_EASING_MS = 90;
@@ -41,16 +42,25 @@ function Con7() {
     };
 
     const applyProgress = (progress) => {
-      const imageScale = 1 + progress * 0.5;
-      const dividerWidth =
-        DEFAULT_DIVIDER_WIDTH +
-        progress * (EXPANDED_DIVIDER_WIDTH - DEFAULT_DIVIDER_WIDTH);
+      for (let index = 0; index < CARD_COUNT; index += 1) {
+        const cardProgress = Math.min(
+          1,
+          Math.max(0, progress * CARD_COUNT - index),
+        );
+        const imageScale = 1 + cardProgress * 0.5;
+        const dividerWidth =
+          DEFAULT_DIVIDER_WIDTH +
+          cardProgress * (EXPANDED_DIVIDER_WIDTH - DEFAULT_DIVIDER_WIDTH);
 
-      section.style.setProperty("--con7-image-scale", imageScale.toFixed(4));
-      section.style.setProperty(
-        "--con7-divider-width",
-        `${dividerWidth.toFixed(2)}px`,
-      );
+        section.style.setProperty(
+          `--con7-image-scale-${index + 1}`,
+          imageScale.toFixed(4),
+        );
+        section.style.setProperty(
+          `--con7-divider-width-${index + 1}`,
+          `${dividerWidth.toFixed(2)}px`,
+        );
+      }
     };
 
     const renderProgress = (time) => {

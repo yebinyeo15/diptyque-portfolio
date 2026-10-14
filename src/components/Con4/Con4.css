@@ -32,7 +32,8 @@
 
 @font-face {
   font-family: "Con4 Newsreader";
-  src: url("/fonts/Newsreader-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  src: url("/fonts/Newsreader-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
   font-style: italic;
   font-weight: 200 800;
   font-display: swap;
@@ -152,7 +153,9 @@
   top: 49px;
   left: 18px;
   width: 360px;
-  font: 500 27px/0 "Con4 Inter", sans-serif;
+  font:
+    500 27px/0 "Con4 Inter",
+    sans-serif;
 }
 
 .con4__archive-quote p {
@@ -225,7 +228,9 @@
   top: 22px;
   left: 62px;
   width: 320px;
-  font: 500 24px/normal "Con4 Inter", sans-serif;
+  font:
+    500 24px/normal "Con4 Inter",
+    sans-serif;
   transition:
     top 500ms ease-in-out,
     opacity 500ms ease-in-out,
@@ -262,7 +267,9 @@
   top: 62px;
   left: 62px;
   width: 360px;
-  font: 400 13px/20px "Con4 Inter", sans-serif;
+  font:
+    400 13px/20px "Con4 Inter",
+    sans-serif;
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
@@ -296,10 +303,7 @@
 }
 
 .con4 .is-muted:hover .con4__index-name,
-.con4
-  .is-muted
-  .con4__index-trigger:focus-visible
-  .con4__index-name {
+.con4 .is-muted .con4__index-trigger:focus-visible .con4__index-name {
   opacity: 0.68;
   transform: translateX(4px);
 }
@@ -353,7 +357,9 @@
 .con4__marquee p {
   flex: none;
   white-space: nowrap;
-  font: 400 14px/normal "Con4 Inter", sans-serif;
+  font:
+    400 14px/normal "Con4 Inter",
+    sans-serif;
   opacity: 0.78;
 }
 
@@ -420,10 +426,7 @@
   }
 
   .con4 .is-muted:hover .con4__index-name,
-  .con4
-    .is-muted
-    .con4__index-trigger:focus-visible
-    .con4__index-name {
+  .con4 .is-muted .con4__index-trigger:focus-visible .con4__index-name {
     transform: none;
   }
 }

@@ -1,4 +1,9 @@
+import { useEffect, useRef } from "react";
 import "./Con1.css";
+
+const REVEAL_THRESHOLD = 0.08;
+const REVEAL_ROOT_MARGIN = "0px 0px -4% 0px";
+const ENABLE_CARD_REVEAL = false;
 
 const fragrances = [
   {
@@ -54,6 +59,56 @@ const fragrances = [
 const filters = ["ALL", "FLORAL", "WOODY", "FRESH", "MUSKY"];
 
 function Con1() {
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    if (!ENABLE_CARD_REVEAL) {
+      return undefined;
+    }
+
+    const grid = gridRef.current;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!grid || reduceMotion || !("IntersectionObserver" in window)) {
+      return undefined;
+    }
+
+    const rowTriggers = grid.querySelectorAll("[data-con1-row-trigger]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const viewportBottom = entry.rootBounds?.bottom ?? window.innerHeight;
+
+          if (
+            entry.isIntersecting ||
+            entry.boundingClientRect.top < viewportBottom
+          ) {
+            const row = entry.target.dataset.con1RowTrigger;
+
+            grid
+              .querySelectorAll(`[data-con1-row="${row}"]`)
+              .forEach((card) => card.classList.add("is-visible"));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: REVEAL_THRESHOLD,
+        rootMargin: REVEAL_ROOT_MARGIN,
+      },
+    );
+
+    rowTriggers.forEach((trigger) => observer.observe(trigger));
+    grid.classList.add("con1__grid--reveal-ready");
+
+    return () => {
+      observer.disconnect();
+      grid.classList.remove("con1__grid--reveal-ready");
+    };
+  }, []);
+
   return (
     <section className="con1" data-node-id="566:2474">
       <div className="page-inner con1__inner" data-node-id="566:2476">
@@ -94,27 +149,41 @@ function Con1() {
           data-node-id="566:2512"
         />
 
-        <div className="con1__grid">
-          {fragrances.map(({ image, name, notes, description }) => (
-            <article className={`con1__card con1__card--${image}`} key={name}>
-              <div className="con1__image">
-                <img src={`/images/page/con1-${image}.png`} alt={name} />
-                <div className="con1__hover" aria-hidden="true">
-                  <h3>{name}</h3>
-                  <span />
-                  <p>
-                    {description[0]}
-                    <br />
-                    {description[1]}
-                  </p>
+        <div
+          className={`con1__grid${ENABLE_CARD_REVEAL ? "" : " con1__grid--reveal-disabled"}`}
+          ref={gridRef}
+        >
+          {fragrances.map(({ image, name, notes, description }, index) => {
+            const row = Math.floor(index / 2);
+
+            return (
+              <div
+                className="con1__reveal"
+                data-con1-row={row}
+                data-con1-row-trigger={index % 2 === 0 ? row : undefined}
+                key={name}
+              >
+                <article className={`con1__card con1__card--${image}`}>
+                  <div className="con1__image">
+                    <img src={`/images/page/con1-${image}.png`} alt={name} />
+                    <div className="con1__hover" aria-hidden="true">
+                      <h3>{name}</h3>
+                      <span />
+                      <p>
+                        {description[0]}
+                        <br />
+                        {description[1]}
+                      </p>
+                    </div>
                 </div>
+                  <div className="con1__meta">
+                    <span>{name}</span>
+                    <span>{notes}</span>
+                  </div>
+                </article>
               </div>
-              <div className="con1__meta">
-                <span>{name}</span>
-                <span>{notes}</span>
-              </div>
-            </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

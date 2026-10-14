@@ -7,8 +7,12 @@
 }
 
 .con7 {
-  --con7-image-scale: 1;
-  --con7-divider-width: 31px;
+  --con7-image-scale-1: 1;
+  --con7-image-scale-2: 1;
+  --con7-image-scale-3: 1;
+  --con7-divider-width-1: 31px;
+  --con7-divider-width-2: 31px;
+  --con7-divider-width-3: 31px;
 
   height: 1260px;
   background: var(--color-white);
@@ -85,13 +89,22 @@
   font-family: "Con7 Inter", sans-serif;
 }
 .con7__card--card1 {
+  --con7-card-image-scale: var(--con7-image-scale-1);
+  --con7-card-divider-width: var(--con7-divider-width-1);
+
   left: 0;
   height: 759px;
 }
 .con7__card--card2 {
+  --con7-card-image-scale: var(--con7-image-scale-2);
+  --con7-card-divider-width: var(--con7-divider-width-2);
+
   left: 488px;
 }
 .con7__card--card3 {
+  --con7-card-image-scale: var(--con7-image-scale-3);
+  --con7-card-divider-width: var(--con7-divider-width-3);
+
   left: 977px;
   width: 465px;
 }
@@ -110,7 +123,7 @@
   height: 100%;
   max-width: none;
   object-fit: cover;
-  transform: scale(var(--con7-image-scale));
+  transform: scale(var(--con7-card-image-scale));
   transform-origin: center;
   backface-visibility: hidden;
 }
@@ -155,7 +168,7 @@
 .con7__card-divider {
   position: relative;
   display: block;
-  width: var(--con7-divider-width);
+  width: var(--con7-card-divider-width);
   height: 3px;
   margin: 13px 0 0 11px;
   overflow: hidden;
@@ -195,7 +208,7 @@
 
 @media (min-width: 1200px) and (min-height: 1000px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .con7 {
-    height: 2160px;
+    height: calc(1260px + 750px);
   }
 
   .con7__inner {
@@ -214,7 +227,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .con7 {
-    --con7-image-scale: 1;
-    --con7-divider-width: 31px;
+    --con7-image-scale-1: 1;
+    --con7-image-scale-2: 1;
+    --con7-image-scale-3: 1;
+    --con7-divider-width-1: 31px;
+    --con7-divider-width-2: 31px;
+    --con7-divider-width-3: 31px;
   }
 }

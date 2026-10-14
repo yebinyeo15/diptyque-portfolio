@@ -1,14 +1,19 @@
 import "./MainVisual.css";
 
+const cards = [
+  "philosykos",
+  "doson",
+  "eau-rose",
+  "orpheon",
+  "tam-dao",
+  "fleur",
+];
+
+const fragranceNames =
+  "PHILOSYKOS      DO SON      EAU ROSE      ORPHEON      TAM DAO      FLEUR DE PEAU";
+const fragranceMarqueeText = `${fragranceNames}      `;
+
 function MainVisual() {
-  const cards = [
-    "philosykos",
-    "doson",
-    "eau-rose",
-    "orpheon",
-    "tam-dao",
-    "fleur",
-  ];
   return (
     <section className="main-visual" data-node-id="566:2426">
       <div className="page-inner main-visual__inner">
@@ -31,17 +36,30 @@ function MainVisual() {
           <p data-node-id="566:2437">향기는 기억보다 오래 남습니다.</p>
         </div>
         <div className="main-visual__names" data-node-id="566:2428">
-          <p data-node-id="566:2429">
-            {
-              "PHILOSYKOS      DO SON      EAU ROSE      ORPHEON      TAM DAO      FLEUR DE PEAU"
-            }
-          </p>
+          <div className="main-visual__names-track">
+            <p data-node-id="566:2429">{fragranceMarqueeText}</p>
+            <p aria-hidden="true">{fragranceMarqueeText}</p>
+          </div>
         </div>
       </div>
       <div className="main-visual__cards" data-node-id="566:2440">
-        {cards.map((card) => (
-          <img key={card} src={`/images/page/main-${card}.png`} alt="" />
-        ))}
+        <div className="main-visual__cards-track">
+          {[0, 1].map((setIndex) => (
+            <div
+              className="main-visual__card-set"
+              key={setIndex}
+              aria-hidden={setIndex === 1 || undefined}
+            >
+              {cards.map((card) => (
+                <img
+                  key={`${setIndex}-${card}`}
+                  src={`/images/page/main-${card}.png`}
+                  alt=""
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

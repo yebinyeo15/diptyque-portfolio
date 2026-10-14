@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import "./Con4.css";
+import { getLenis } from "../../lib/lenis";
 import doSonImage from "./con4-doson.png";
 import orpheonImage from "./con4-orpheon.png";
 import tamDaoImage from "./con4-tamdao.png";
@@ -295,7 +296,13 @@ function Con4() {
       window.clearTimeout(unlockTimerRef.current);
     }
 
-    window.scrollTo({ top: targetScroll, behavior: "smooth" });
+    const lenis = getLenis();
+
+    if (lenis) {
+      lenis.scrollTo(targetScroll, { lerp: 0.12 });
+    } else {
+      window.scrollTo({ top: targetScroll, behavior: "smooth" });
+    }
 
     unlockTimerRef.current = window.setTimeout(releaseProgrammaticScroll, 1200);
   };
@@ -337,9 +344,7 @@ function Con4() {
               <small className="con4__archive-index">
                 {selectedContent.archiveLabel}
               </small>
-              <div className="con4__archive-quote">
-                {selectedContent.quote}
-              </div>
+              <div className="con4__archive-quote">{selectedContent.quote}</div>
               <small className="con4__archive-notes">
                 {selectedContent.notes}
               </small>
@@ -378,8 +383,8 @@ function Con4() {
         <div className="con4__marquee" aria-hidden="true">
           <div className="con4__marquee-track">
             <p>
-              PHILOSYKOS — FIG LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
-              TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
+              PHILOSYKOS — FIG LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON
+              — TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
               ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
               JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO —
               SANDALWOOD&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;PHILOSYKOS — FIG
@@ -389,8 +394,8 @@ function Con4() {
               JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO — SANDALWOOD
             </p>
             <p aria-hidden="true">
-              PHILOSYKOS — FIG LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON —
-              TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
+              PHILOSYKOS — FIG LEAF&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;DO SON
+              — TUBEROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;EAU ROSE — DAMASK
               ROSE&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;ORPHÉON —
               JUNIPER&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;TAM DAO —
               SANDALWOOD&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;PHILOSYKOS — FIG

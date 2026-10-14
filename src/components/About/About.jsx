@@ -42,13 +42,17 @@ function About() {
             className="about__fig-frame about__fig-frame--left"
             data-node-id="566:2424"
           >
-            <img src="/images/page/about-left.png" alt="" />
+            <div className="about__fig-float about__fig-float--left">
+              <img src="/images/page/about-left.png" alt="" />
+            </div>
           </div>
           <div
             className="about__fig-frame about__fig-frame--right"
             data-node-id="566:2425"
           >
-            <img src="/images/page/about-right.png" alt="" />
+            <div className="about__fig-float about__fig-float--right">
+              <img src="/images/page/about-right.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
