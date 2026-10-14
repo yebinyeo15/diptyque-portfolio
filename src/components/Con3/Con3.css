@@ -7,6 +7,9 @@
 }
 
 .con3 {
+  --con3-stack-top: 48px;
+  --con3-stack-peek: 31px;
+
   height: 2863px;
   padding-top: 191px;
   overflow-x: clip;
@@ -15,7 +18,7 @@
 
 .con3__inner {
   height: 2482px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .con3__eyebrow {
@@ -100,16 +103,39 @@
   display: grid;
   gap: 31px;
   width: 1442px;
+  padding-bottom: 210px;
+  isolation: isolate;
 }
 
 .con3__card {
-  position: relative;
+  position: sticky;
+  align-self: start;
   width: 1442px;
   height: 525px;
   overflow: hidden;
   border-radius: 20px;
   background: #f4f4f4;
   color: #000;
+}
+
+.con3__card:nth-child(1) {
+  top: var(--con3-stack-top);
+  z-index: 1;
+}
+
+.con3__card:nth-child(2) {
+  top: calc(var(--con3-stack-top) + var(--con3-stack-peek));
+  z-index: 2;
+}
+
+.con3__card:nth-child(3) {
+  top: calc(var(--con3-stack-top) + 62px);
+  z-index: 3;
+}
+
+.con3__card:nth-child(4) {
+  top: calc(var(--con3-stack-top) + 93px);
+  z-index: 4;
 }
 
 .con3__image-frame {
