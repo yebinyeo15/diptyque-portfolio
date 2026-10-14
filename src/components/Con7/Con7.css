@@ -112,6 +112,7 @@
   object-fit: cover;
   transform: scale(var(--con7-image-scale));
   transform-origin: center;
+  backface-visibility: hidden;
 }
 .con7__card--card1 .con7__card-image {
   top: 0.1686px;

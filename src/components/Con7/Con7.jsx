@@ -7,6 +7,8 @@ const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const SCROLL_DISTANCE = 900;
 const DEFAULT_DIVIDER_WIDTH = 31;
 const EXPANDED_DIVIDER_WIDTH = 454;
+const PROGRESS_EASING_MS = 90;
+const PROGRESS_EPSILON = 0.0001;
 
 function Con7() {
   const sectionRef = useRef(null);
@@ -21,25 +23,24 @@ function Con7() {
     const stickyMedia = window.matchMedia(STICKY_MEDIA_QUERY);
     const reducedMotionMedia = window.matchMedia(REDUCED_MOTION_QUERY);
     let frameId = null;
+    let currentProgress = 0;
+    let targetProgress = 0;
+    let previousTime = null;
 
-    const renderProgress = () => {
-      frameId = null;
-
+    const getProgress = () => {
       if (!stickyMedia.matches || reducedMotionMedia.matches) {
-        section.style.setProperty("--con7-image-scale", "1");
-        section.style.setProperty(
-          "--con7-divider-width",
-          `${DEFAULT_DIVIDER_WIDTH}px`,
-        );
-        return;
+        return 0;
       }
 
       const sectionTop = section.getBoundingClientRect().top;
       const stickyTop = (window.innerHeight - panel.offsetHeight) / 2;
-      const progress = Math.min(
+      return Math.min(
         1,
         Math.max(0, (stickyTop - sectionTop) / SCROLL_DISTANCE),
       );
+    };
+
+    const applyProgress = (progress) => {
       const imageScale = 1 + progress * 0.5;
       const dividerWidth =
         DEFAULT_DIVIDER_WIDTH +
@@ -52,16 +53,43 @@ function Con7() {
       );
     };
 
+    const renderProgress = (time) => {
+      const elapsed = previousTime === null ? 0 : time - previousTime;
+      previousTime = time;
+      const easing = 1 - Math.exp(-elapsed / PROGRESS_EASING_MS);
+
+      currentProgress += (targetProgress - currentProgress) * easing;
+
+      if (Math.abs(targetProgress - currentProgress) < PROGRESS_EPSILON) {
+        currentProgress = targetProgress;
+      }
+
+      applyProgress(currentProgress);
+
+      if (currentProgress !== targetProgress) {
+        frameId = window.requestAnimationFrame(renderProgress);
+      } else {
+        frameId = null;
+        previousTime = null;
+      }
+    };
+
     const requestRender = () => {
-      if (frameId !== null) return;
-      frameId = window.requestAnimationFrame(renderProgress);
+      targetProgress = getProgress();
+
+      if (frameId === null) {
+        previousTime = null;
+        frameId = window.requestAnimationFrame(renderProgress);
+      }
     };
 
     window.addEventListener("scroll", requestRender, { passive: true });
     window.addEventListener("resize", requestRender);
     stickyMedia.addEventListener("change", requestRender);
     reducedMotionMedia.addEventListener("change", requestRender);
-    renderProgress();
+    currentProgress = getProgress();
+    targetProgress = currentProgress;
+    applyProgress(currentProgress);
 
     return () => {
       window.removeEventListener("scroll", requestRender);
