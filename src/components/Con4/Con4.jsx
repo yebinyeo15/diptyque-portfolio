@@ -308,7 +308,12 @@ function Con4() {
   };
 
   return (
-    <section ref={sectionRef} className="con4" data-node-id="566:2590">
+    <section
+      ref={sectionRef}
+      id="story"
+      className="con4"
+      data-node-id="566:2590"
+    >
       <div ref={panelRef} className="page-inner con4__inner">
         <span className="section-pill">SCENT STORIES</span>
         <h2 className="section-heading">

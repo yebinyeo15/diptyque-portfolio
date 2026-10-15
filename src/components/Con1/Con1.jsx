@@ -110,7 +110,7 @@ function Con1() {
   }, []);
 
   return (
-    <section className="con1" data-node-id="566:2474">
+    <section id="collection" className="con1" data-node-id="566:2474">
       <div className="page-inner con1__inner" data-node-id="566:2476">
         <span className="section-pill con1__pill" data-node-id="566:2516">
           THE COLLECTION

@@ -43,7 +43,7 @@ function Con6() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="con6" data-node-id="566:2837">
+    <section id="ritual" className="con6" data-node-id="566:2837">
       <div className="page-inner con6__inner">
         <span className="section-pill">THE RITUAL</span>
         <h2 className="section-heading">
