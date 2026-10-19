@@ -102,7 +102,8 @@
 }
 
 .site-footer__fixed {
-  position: absolute;
+  position: fixed;
+  z-index: 20;
   right: 30px;
   bottom: 18.65px;
   display: flex;
@@ -110,6 +111,17 @@
   height: 215.35px;
   flex-direction: column;
   gap: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease;
+}
+.site-footer__fixed.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 .site-footer__fixed-card {
   display: flex;
@@ -119,6 +131,7 @@
   gap: 4.01px;
   align-items: center;
   padding: 4px;
+  border: 0;
   border-radius: 12px;
   background: var(--color-black);
 }
@@ -158,9 +171,12 @@
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  border: 0;
   border-radius: 8px;
   background: var(--color-black);
   color: var(--color-white);
+  cursor: pointer;
   font: 600 16px/20.8px var(--font-libre-baskerville);
   letter-spacing: -0.48px;
   white-space: pre;
@@ -169,8 +185,20 @@
   font-family: var(--font-pretendard);
 }
 
+@media (max-width: 767px) {
+  .site-footer__fixed {
+    right: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-footer__slide {
+    transition: none;
+  }
+
+  .site-footer__fixed,
+  .site-footer__back-to-top {
     transition: none;
   }
 }

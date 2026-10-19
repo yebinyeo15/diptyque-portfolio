@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { getLenis } from "../../lib/lenis";
 import "./Footer.css";
 
 const SLIDE_INTERVAL = 3000;
+const SCROLL_DIRECTION_THRESHOLD = 8;
+const SCROLL_IDLE_DELAY = 1500;
 const footerSlides = [
   {
     image: "/images/page/footer-image.png",
@@ -28,8 +31,12 @@ const footerSlides = [
 
 function Footer() {
   const footerRef = useRef(null);
+  const floatingRef = useRef(null);
+  const hideTimerRef = useRef(null);
+  const isInteractingRef = useRef(false);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isFooterVisible, setIsFooterVisible] = useState(true);
+  const [isFloatingVisible, setIsFloatingVisible] = useState(false);
 
   useEffect(() => {
     footerSlides.forEach(({ image }) => {
@@ -48,7 +55,7 @@ function Footer() {
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
+      ([entry]) => setIsFooterVisible(entry.isIntersecting),
       { threshold: 0.01 },
     );
 
@@ -57,14 +64,148 @@ function Footer() {
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return undefined;
+    if (!isFooterVisible) return undefined;
 
     const intervalId = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % footerSlides.length);
     }, SLIDE_INTERVAL);
 
     return () => window.clearInterval(intervalId);
-  }, [isVisible]);
+  }, [isFooterVisible]);
+
+  useEffect(() => {
+    const mainVisual = document.querySelector(".main-visual");
+
+    if (!mainVisual) return undefined;
+
+    let frameId = null;
+    let lastDirectionalScroll = Math.max(0, window.scrollY);
+
+    const clearHideTimer = () => {
+      if (hideTimerRef.current !== null) {
+        window.clearTimeout(hideTimerRef.current);
+        hideTimerRef.current = null;
+      }
+    };
+
+    const scheduleHide = () => {
+      clearHideTimer();
+
+      if (isInteractingRef.current) return;
+
+      hideTimerRef.current = window.setTimeout(() => {
+        setIsFloatingVisible(false);
+        hideTimerRef.current = null;
+      }, SCROLL_IDLE_DELAY);
+    };
+
+    hideTimerRef.current = null;
+
+    const updateVisibility = () => {
+      frameId = null;
+      const currentScroll = Math.max(0, window.scrollY);
+      const hasPassedMainVisual =
+        mainVisual.getBoundingClientRect().bottom <= 0;
+
+      if (!hasPassedMainVisual) {
+        clearHideTimer();
+        setIsFloatingVisible(false);
+        lastDirectionalScroll = currentScroll;
+        return;
+      }
+
+      const scrollDelta = currentScroll - lastDirectionalScroll;
+
+      if (Math.abs(scrollDelta) < SCROLL_DIRECTION_THRESHOLD) return;
+
+      if (scrollDelta > 0) {
+        clearHideTimer();
+        setIsFloatingVisible(false);
+      } else {
+        setIsFloatingVisible(true);
+        scheduleHide();
+      }
+
+      lastDirectionalScroll = currentScroll;
+    };
+
+    const requestVisibilityUpdate = () => {
+      if (frameId !== null) return;
+      frameId = window.requestAnimationFrame(updateVisibility);
+    };
+
+    requestVisibilityUpdate();
+    window.addEventListener("scroll", requestVisibilityUpdate, {
+      passive: true,
+    });
+    window.addEventListener("resize", requestVisibilityUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestVisibilityUpdate);
+      window.removeEventListener("resize", requestVisibilityUpdate);
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+      clearHideTimer();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (
+      !isFloatingVisible &&
+      floatingRef.current?.contains(document.activeElement)
+    ) {
+      document.activeElement.blur();
+    }
+  }, [isFloatingVisible]);
+
+  const clearHideTimer = () => {
+    if (hideTimerRef.current !== null) {
+      window.clearTimeout(hideTimerRef.current);
+      hideTimerRef.current = null;
+    }
+  };
+
+  const scheduleHide = () => {
+    clearHideTimer();
+
+    if (isInteractingRef.current) return;
+
+    hideTimerRef.current = window.setTimeout(() => {
+      setIsFloatingVisible(false);
+      hideTimerRef.current = null;
+    }, SCROLL_IDLE_DELAY);
+  };
+
+  const handleFloatingEnter = () => {
+    isInteractingRef.current = true;
+    clearHideTimer();
+  };
+
+  const handleFloatingLeave = () => {
+    isInteractingRef.current = false;
+    scheduleHide();
+  };
+
+  const handleFloatingBlur = (event) => {
+    if (event.currentTarget.contains(event.relatedTarget)) return;
+    handleFloatingLeave();
+  };
+
+  const handleBackToTop = () => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const lenis = getLenis();
+
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: prefersReducedMotion });
+      return;
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  };
 
   return (
     <footer ref={footerRef} className="site-footer" data-node-id="566:2949">
@@ -120,23 +261,40 @@ function Footer() {
           </div>
         </nav>
       </div>
-      <aside className="site-footer__fixed" aria-hidden="true">
-        <div className="site-footer__fixed-card">
-          <div className="site-footer__fixed-preview">
+      <aside
+        ref={floatingRef}
+        className={`site-footer__fixed${isFloatingVisible ? " is-visible" : ""}`}
+        aria-hidden={!isFloatingVisible}
+        onPointerEnter={handleFloatingEnter}
+        onPointerLeave={handleFloatingLeave}
+        onFocusCapture={handleFloatingEnter}
+        onBlurCapture={handleFloatingBlur}
+      >
+        <div
+          className="site-footer__fixed-card"
+          aria-hidden="true"
+        >
+          <span className="site-footer__fixed-preview">
             <img
               src="/images/page/footer-fixed-card.png"
               alt=""
             />
-          </div>
-          <div className="site-footer__fixed-brand">
+          </span>
+          <span className="site-footer__fixed-brand">
             DIPTYQUE
             <br />
             PARIS
-          </div>
+          </span>
         </div>
-        <div className="site-footer__back-to-top">
+        <button
+          className="site-footer__back-to-top"
+          type="button"
+          onClick={handleBackToTop}
+          aria-label="Back to top"
+          tabIndex={isFloatingVisible ? 0 : -1}
+        >
           BACK TO TOP <span>↑</span>
-        </div>
+        </button>
       </aside>
     </footer>
   );

@@ -70,12 +70,12 @@ function Con3() {
         </p>
 
         <a className="con3__view-all">
-          <span>DISCOVER THE SAVOIR-FAIRE</span>
-          <img
-            className="con3__view-all-arrow"
-            src="/images/page/con1-arrow.svg"
-            alt=""
-          />
+          <span className="con3__view-all-label">
+            DISCOVER THE SAVOIR-FAIRE
+          </span>
+          <span className="con3__view-all-arrow" aria-hidden="true">
+            <img src="/images/page/con1-arrow.svg" alt="" />
+          </span>
           <img
             className="con3__view-all-underline"
             src="/images/page/con1-underline.svg"
