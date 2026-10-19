@@ -161,6 +161,13 @@
   }
 }
 
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .main-visual__intro {
+    right: 0;
+    left: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .main-visual__cards-track,
   .main-visual__names-track {

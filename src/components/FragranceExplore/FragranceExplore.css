@@ -1,0 +1,88 @@
+.fragrance-explore {
+  height: 620px;
+  background: var(--color-white);
+}
+
+.fragrance-explore__inner {
+  position: relative;
+  width: min(calc(100% - 48px), 1444px);
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fragrance-explore__eyebrow {
+  position: absolute;
+  top: 141px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.fragrance-explore h2 {
+  position: absolute;
+  top: 187px;
+  left: 50%;
+  width: 750px;
+  margin: 0;
+  transform: translateX(-50%);
+  color: var(--color-black);
+  font: 500 48px/normal var(--font-libre-baskerville);
+  letter-spacing: -3.84px;
+}
+
+.fragrance-explore h2 span,
+.fragrance-explore__description span {
+  display: block;
+}
+
+.fragrance-explore__description {
+  position: absolute;
+  top: 338px;
+  left: 50%;
+  width: 960px;
+  transform: translateX(-50%);
+  color: #7a7a7a;
+  font: 400 20px/1.35 var(--font-inter);
+  letter-spacing: normal;
+}
+
+.fragrance-explore__cta {
+  position: absolute;
+  top: 431px;
+  left: 50%;
+  display: flex;
+  width: 230px;
+  height: 49px;
+  border-radius: 15px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font: 500 20px/1.35 var(--font-inter);
+  letter-spacing: -0.7px;
+  transform: translateX(-50%);
+}
+
+.fragrance-explore__cta-label {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 17.5px);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.fragrance-explore__cta-icon {
+  position: absolute;
+  top: 50%;
+  left: 186px;
+  width: 25px;
+  height: 25px;
+  max-width: none;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 767px) {
+  .fragrance-explore h2,
+  .fragrance-explore__description {
+    width: 100%;
+  }
+}

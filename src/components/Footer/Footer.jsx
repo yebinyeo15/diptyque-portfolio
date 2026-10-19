@@ -29,7 +29,7 @@ const footerSlides = [
   },
 ];
 
-function Footer() {
+function Footer({ floatingBoundarySelector = ".main-visual" }) {
   const footerRef = useRef(null);
   const floatingRef = useRef(null);
   const hideTimerRef = useRef(null);
@@ -74,7 +74,7 @@ function Footer() {
   }, [isFooterVisible]);
 
   useEffect(() => {
-    const mainVisual = document.querySelector(".main-visual");
+    const mainVisual = document.querySelector(floatingBoundarySelector);
 
     if (!mainVisual) return undefined;
 
@@ -146,7 +146,7 @@ function Footer() {
       if (frameId !== null) window.cancelAnimationFrame(frameId);
       clearHideTimer();
     };
-  }, []);
+  }, [floatingBoundarySelector]);
 
   useEffect(() => {
     if (

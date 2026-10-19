@@ -101,6 +101,12 @@
   margin-top: 4px;
 }
 
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .site-footer__media {
+    width: 100%;
+  }
+}
+
 .site-footer__fixed {
   position: fixed;
   z-index: 20;

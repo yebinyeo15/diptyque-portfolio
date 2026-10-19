@@ -164,17 +164,7 @@ function Con7() {
           <br />
           메종 딥디크의 짧은 기록.
         </p>
-        <div className="con7__stories-link">
-          <span>VIEW ALL STORIES</span>
-          <span className="con7__stories-arrow" aria-hidden="true">
-            <img src="/images/page/con1-arrow.svg" alt="" />
-          </span>
-          <img
-            className="con7__stories-underline"
-            src="/images/page/con1-underline.svg"
-            alt=""
-          />
-        </div>
+        <p className="con7__stories-link">STORIES FROM THE MAISON</p>
         <div className="con7__cards">
           {cards.map(([image, label, title, copy]) => (
             <article key={image} className={`con7__card con7__card--${image}`}>

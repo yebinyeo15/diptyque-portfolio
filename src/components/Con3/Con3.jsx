@@ -69,19 +69,7 @@ function Con3() {
           자연에서 발견한 원료가 하나의 기억으로 완성되는 과정을 따라가 보세요
         </p>
 
-        <a className="con3__view-all">
-          <span className="con3__view-all-label">
-            DISCOVER THE SAVOIR-FAIRE
-          </span>
-          <span className="con3__view-all-arrow" aria-hidden="true">
-            <img src="/images/page/con1-arrow.svg" alt="" />
-          </span>
-          <img
-            className="con3__view-all-underline"
-            src="/images/page/con1-underline.svg"
-            alt=""
-          />
-        </a>
+        <p className="con3__editorial-note">DISCOVER THE SAVOIR-FAIRE</p>
 
         <div className="con3__list" id="con3-cards">
           {scentStages.map(({ image, number, title, description, tags }) => (

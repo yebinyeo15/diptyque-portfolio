@@ -59,52 +59,18 @@
   white-space: nowrap;
 }
 
-.con3__view-all {
+.con3__editorial-note {
   position: absolute;
   top: 118px;
-  left: 1121px;
-  width: 321px;
-  height: 62px;
-  color: #000;
-  text-decoration: none;
-}
-
-.con3__view-all-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  left: 1258px;
+  margin: 0;
+  padding: 10px;
+  color: #777;
   font:
-    400 20px/normal "Inter Con3",
+    400 12px/normal "Inter Con3",
     sans-serif;
-  letter-spacing: -0.6px;
+  letter-spacing: 0.12px;
   white-space: nowrap;
-}
-
-.con3__view-all-arrow {
-  position: absolute;
-  top: 0;
-  left: 279.57px;
-  display: flex;
-  width: 43.799px;
-  height: 43.799px;
-  align-items: center;
-  justify-content: center;
-}
-
-.con3__view-all-arrow img {
-  display: block;
-  width: 31px;
-  height: 31px;
-  max-width: none;
-  transform: rotate(42.52deg);
-}
-
-.con3__view-all-underline {
-  position: absolute;
-  top: 49px;
-  left: 10px;
-  width: 31px;
-  height: 3px;
 }
 
 .con3__list {
@@ -233,5 +199,17 @@
 @media (max-width: 1490px) {
   .con3__inner {
     width: calc(100% - 48px);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .con3__editorial-note {
+    right: 0;
+    left: auto;
+  }
+
+  .con3__list,
+  .con3__card {
+    width: 100%;
   }
 }

@@ -1,0 +1,122 @@
+.fragrance-hero {
+  height: 1299px;
+  background: var(--color-white);
+}
+
+.fragrance-hero__inner {
+  position: relative;
+  width: min(calc(100% - 48px), 1444px);
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 82px;
+}
+
+.fragrance-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #666;
+  font: 500 12px/1.2 var(--font-inter);
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  transition: color 220ms ease-out;
+}
+
+.fragrance-hero__back span {
+  transition: transform 220ms ease-out;
+}
+
+.fragrance-hero__back:hover,
+.fragrance-hero__back:focus-visible {
+  color: #333;
+}
+
+.fragrance-hero__back:hover span,
+.fragrance-hero__back:focus-visible span {
+  transform: translateX(-3px);
+}
+
+.fragrance-hero__title {
+  position: absolute;
+  top: 123px;
+  left: 0;
+  margin: 0;
+  color: var(--color-black);
+  font: 600 68px/69.3px var(--font-libre-baskerville);
+  letter-spacing: -4.5px;
+}
+
+.fragrance-hero__description {
+  position: absolute;
+  top: 246.75px;
+  left: 3px;
+  color: var(--color-ink-warm);
+  font: 400 19px/1.5 var(--font-inter);
+  letter-spacing: -0.76px;
+}
+
+.fragrance-hero__description span {
+  display: block;
+}
+
+.fragrance-hero__details {
+  position: absolute;
+  top: 377px;
+  left: 3px;
+  display: flex;
+  gap: 68px;
+  margin: 0;
+  font-family: var(--font-inter);
+  white-space: nowrap;
+}
+
+.fragrance-hero__details div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.fragrance-hero__details dt {
+  color: #7a7a7a;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.fragrance-hero__details dd {
+  margin: 0;
+  color: #1f1f1f;
+  font-size: 17px;
+}
+
+.fragrance-hero__image {
+  position: absolute;
+  top: 486px;
+  left: 0;
+  width: 100%;
+  height: 722px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fragrance-hero__back,
+  .fragrance-hero__back span {
+    transition: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .fragrance-hero__title {
+    font-size: clamp(48px, 14vw, 68px);
+  }
+
+  .fragrance-hero__description {
+    font-size: 16px;
+  }
+
+  .fragrance-hero__details {
+    width: 100%;
+    gap: 0;
+    justify-content: space-between;
+  }
+}

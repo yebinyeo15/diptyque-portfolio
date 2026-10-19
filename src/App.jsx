@@ -1,37 +1,19 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import About from './components/About/About'
-import Con1 from './components/Con1/Con1'
-import Con2 from './components/Con2/Con2'
-import Con3 from './components/Con3/Con3'
-import Con4 from './components/Con4/Con4'
-import Con5 from './components/Con5/Con5'
-import Con6 from './components/Con6/Con6'
-import Con7 from './components/Con7/Con7'
-import Con8 from './components/Con8/Con8'
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
-import HeroVisual from './components/HeroVisual/HeroVisual'
-import MainVisual from './components/MainVisual/MainVisual'
+import SiteLayout from './layouts/SiteLayout/SiteLayout'
+import FragrancePage from './pages/FragrancePage/FragrancePage'
+import HomePage from './pages/HomePage/HomePage'
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <MainVisual />
-        <HeroVisual />
-        <About />
-        <Con1 />
-        <Con2 />
-        <Con3 />
-        <Con4 />
-        <Con5 />
-        <Con6 />
-        <Con7 />
-        <Con8 />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<SiteLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="fragrances/:fragranceId" element={<FragrancePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

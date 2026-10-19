@@ -117,6 +117,14 @@
     object-position: 41.3% center;
   }
 }
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .con5__cards {
+    grid-template-columns: 548fr 884fr;
+    width: 100%;
+  }
+}
+
 .con5 article > *:not(img) {
   position: absolute;
   z-index: 2;

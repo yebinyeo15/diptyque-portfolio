@@ -11,25 +11,30 @@
 .hero-visual__pill {
   position: absolute;
   top: 120px;
-  left: 670px;
-  width: 102px;
+  left: 50%;
+  width: max-content;
+  min-width: 102px;
   height: 28px;
   line-height: normal;
+  white-space: nowrap;
+  transform: translateX(-50%);
 }
 .hero-visual__title {
   position: absolute;
   top: 156px;
-  left: 479.5px;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 483px;
+  width: min(calc(100% - 32px), 483px);
+  max-width: 483px;
   height: 124px;
   padding: 10px;
+  transform: translateX(-50%);
 }
 .hero-visual h2 {
   color: var(--color-ink-cool);
-  font: 500 47px/51.7px var(--font-libre-baskerville);
+  font: 500 clamp(24px, 3.26vw, 47px)/1.1 var(--font-libre-baskerville);
   letter-spacing: -3.29px;
   text-align: center;
   white-space: nowrap;
@@ -37,13 +42,15 @@
 .hero-visual__copy {
   position: absolute;
   top: 277px;
-  left: 462px;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 519px;
+  width: min(calc(100% - 32px), 519px);
+  max-width: 519px;
   height: 63px;
   padding: 10px;
+  transform: translateX(-50%);
 }
 .hero-visual__copy p {
   color: var(--color-ink-warm);
@@ -51,6 +58,19 @@
   letter-spacing: -0.64px;
   text-align: center;
   white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .hero-visual h2 {
+    letter-spacing: -1.7px;
+  }
+
+  .hero-visual__copy p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+    white-space: normal;
+  }
 }
 .hero-visual__media {
   position: absolute;
@@ -158,6 +178,57 @@
 @media (prefers-reduced-motion: no-preference) {
   .hero-visual__media {
     will-change: transform;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .hero-visual__media {
+    left: 5%;
+    width: 90%;
+  }
+
+  .hero-visual__stats {
+    width: 100%;
+  }
+
+  .hero-visual__stats article:nth-child(1) .hero-visual__stat-number {
+    left: -0.35%;
+    width: 10.26%;
+  }
+
+  .hero-visual__stats article:nth-child(2) .hero-visual__stat-number {
+    left: 26.84%;
+    width: 6.73%;
+  }
+
+  .hero-visual__stats article:nth-child(3) .hero-visual__stat-number {
+    left: 54.3%;
+    width: 6.73%;
+  }
+
+  .hero-visual__stats article:nth-child(4) .hero-visual__stat-number {
+    left: 81.41%;
+    width: 5.13%;
+  }
+
+  .hero-visual__stats article:nth-child(1) .hero-visual__stat-copy {
+    left: -0.28%;
+    width: 11.86%;
+  }
+
+  .hero-visual__stats article:nth-child(2) .hero-visual__stat-copy {
+    left: 26.98%;
+    width: 18.52%;
+  }
+
+  .hero-visual__stats article:nth-child(3) .hero-visual__stat-copy {
+    left: 54.3%;
+    width: 17.82%;
+  }
+
+  .hero-visual__stats article:nth-child(4) .hero-visual__stat-copy {
+    left: 81.55%;
+    width: 17.48%;
   }
 }
 
