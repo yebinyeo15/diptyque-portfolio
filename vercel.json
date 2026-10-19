@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/fragrances/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
