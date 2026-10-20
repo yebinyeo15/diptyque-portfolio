@@ -5,8 +5,8 @@
   overflow-y: auto;
   color: #171717;
   background: rgb(247 246 243 / 75%);
-  backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
   opacity: 0;
   transform: translateY(-12px);
   transition:

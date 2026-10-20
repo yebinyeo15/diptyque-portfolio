@@ -71,7 +71,7 @@
   clip-path: inset(0 calc(100% - var(--con8-line-4)) 0 0);
 }
 
-@media (min-width: 1200px) and (min-height: 1000px) {
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
   .con8 {
     height: calc(100vh + 900px);
   }

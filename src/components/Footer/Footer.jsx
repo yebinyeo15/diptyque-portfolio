@@ -9,23 +9,14 @@ const footerSlides = [
   {
     image: "/images/page/footer-image.png",
     alt: "Diptyque glass object",
-    caption: [
-      "검은 유리의 중심에서",
-      "보이지 않는 향이 투명한 형태로 번져갑니다.",
-    ],
   },
   {
     image: "/images/page/footer-image-2.png",
     alt: "Diptyque translucent glass sculpture",
-    caption: [
-      "보이지 않는 향의 결이",
-      "공기 속에서 천천히 겹쳐집니다.",
-    ],
   },
   {
     image: "/images/page/footer-image-3.png",
     alt: "Diptyque glass object surrounded by ripples",
-    caption: ["향이 지나간 자리에는", "잊히지 않는 감각이 남습니다."],
   },
 ];
 
@@ -224,7 +215,7 @@ function Footer({ floatingBoundarySelector = ".main-visual" }) {
           <img src="/images/page/social-x.svg" alt="X" />
         </div>
         <div className="site-footer__media" data-node-id="566:3005">
-          {footerSlides.map(({ image, alt, caption }, index) => {
+          {footerSlides.map(({ image, alt }, index) => {
             const isActive = index === activeSlide;
 
             return (
@@ -234,11 +225,6 @@ function Footer({ floatingBoundarySelector = ".main-visual" }) {
                 aria-hidden={!isActive}
               >
                 <img className="site-footer__image" src={image} alt={alt} />
-                <p className="site-footer__caption">
-                  {caption[0]}
-                  <br />
-                  {caption[1]}
-                </p>
               </div>
             );
           })}
@@ -270,22 +256,6 @@ function Footer({ floatingBoundarySelector = ".main-visual" }) {
         onFocusCapture={handleFloatingEnter}
         onBlurCapture={handleFloatingBlur}
       >
-        <div
-          className="site-footer__fixed-card"
-          aria-hidden="true"
-        >
-          <span className="site-footer__fixed-preview">
-            <img
-              src="/images/page/footer-fixed-card.png"
-              alt=""
-            />
-          </span>
-          <span className="site-footer__fixed-brand">
-            DIPTYQUE
-            <br />
-            PARIS
-          </span>
-        </div>
         <button
           className="site-footer__back-to-top"
           type="button"
@@ -293,7 +263,7 @@ function Footer({ floatingBoundarySelector = ".main-visual" }) {
           aria-label="Back to top"
           tabIndex={isFloatingVisible ? 0 : -1}
         >
-          BACK TO TOP <span>↑</span>
+          <img src="/images/page/footer-top.svg" alt="" />
         </button>
       </aside>
     </footer>

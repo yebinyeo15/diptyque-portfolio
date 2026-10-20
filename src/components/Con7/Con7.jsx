@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import "./Con7.css";
 
 const STICKY_MEDIA_QUERY =
-  "(min-width: 1200px) and (min-height: 1000px) and (hover: hover) and (pointer: fine)";
+  "(min-width: 1200px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const SCROLL_DISTANCE = 750;
 const CARD_COUNT = 3;

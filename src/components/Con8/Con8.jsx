@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import "./Con8.css";
 
-const STICKY_MEDIA_QUERY = "(min-width: 1200px) and (min-height: 1000px)";
+const STICKY_MEDIA_QUERY =
+  "(min-width: 1200px) and (hover: hover) and (pointer: fine)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const SCROLL_DISTANCE = 900;
 const REVEAL_COMPLETION = 0.87;
